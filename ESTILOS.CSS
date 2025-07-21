@@ -6,7 +6,7 @@
     place-items: center;
 }
 
-.seccion.resenias h2 {
+.seccion.resenias h2, .secciones h2{
     grid-column: 1 / -1;
     text-align: center; /* Centra el texto del título */
 }
@@ -106,22 +106,29 @@ header a {
 .producto {
     background-color: #6F8191;
     width: 16rem;
-    height: 22rem;
+    /* height: 22rem; */
     border: 1px solid gray;
     border-radius: 10px;
+    display: flex; /* Añadimos flexbox al producto para controlar su contenido */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
 }
 
 .producto-contenido {
-    padding: 0 1rem;
+    padding: 0 1rem 1rem;
     display: flex;
     flex-direction: column;
     color: black;
-}
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+    justify-content: flex-end; /* Alinea el contenido hacia abajo */
+} 
 
 .producto img {
     border-radius: 10px 10px 0 0;
     height: 15rem;
     background-color: white;
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+    object-fit: cover; /* Para que la imagen se ajuste bien */
 }
 
 /* Formas de pago y Contacto*/
@@ -205,4 +212,66 @@ footer p {
 
 .copy {
     text-align: center;
+}
+
+.btn-comprar {
+    background-color: #007bff; /* Color de ejemplo para el botón */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Centra el botón horizontalmente dentro del flexbox */
+    align-self: center;
+    /* ¡Importante! Empuja el botón hacia el fondo del contenedor,
+       independientemente de la altura del texto superior */
+    margin-top: auto;
+}
+
+/* Carrito de compras ***********************************/
+.carritoCompras {
+    margin: 2rem auto 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
+    min-width: 400px;
+    background-color: #f9f9f9;
+    color: #33082D;
+}
+
+.carritoCompras h2 {
+    color:#33082D;
+    margin-top: 0;
+}
+
+.lista-carrito li {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+
+.lista-carrito button {
+    margin-left: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+
+.lista-carrito button {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.total-carrito,
+.cantidad-carrito {
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
 }
